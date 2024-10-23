@@ -1,14 +1,42 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+
+const logo = require('../../assets/images/logo.png');
 
 const LoginScreen = () => {
   return (
-    <View>
-      <Text>LoginScreen</Text>
+    <View style={{
+      display: 'flex',
+      alignItems: 'center',
+    }}>
+
+      <Image
+       resizeMode="contain"
+        source={logo}
+        style={styles.bgImage} />
+     <View style={{
+      backgroundColor:'purple',
+      width:'100%',
+      height:'100%',
+      padding:20,
+      marginTop:-30
+     }}>
+     <Text style={styles.pageTitle}>Personal Budget Planner</Text>
+     </View>
     </View>
   )
 }
 
 export default LoginScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  bgImage: {
+    width: 200,
+    height: 200,
+    marginTop: 10
+  },
+  pageTitle: {
+    fontSize: 30,
+    fontWeight: 'bold'
+  }
+})
