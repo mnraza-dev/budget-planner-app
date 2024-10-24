@@ -1,7 +1,7 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const logo = require('../../assets/images/logo.png');
+import logo from '../../assets/images/logo.png';
 
 const LoginScreen = () => {
   return (
@@ -9,6 +9,7 @@ const LoginScreen = () => {
       display: 'flex',
       alignItems: 'center',
     }}>
+      <Text>Hi there</Text>
 
       <Image
        resizeMode="contain"
