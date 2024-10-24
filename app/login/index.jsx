@@ -1,29 +1,58 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, TextInput, View } from 'react-native'
 import React from 'react'
 
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/react-logo.png';
+import { COLORS } from '../../constants/Colors';
+import { TouchableOpacity } from 'react-native';
 
 const LoginScreen = () => {
   return (
-    <View style={{
-      display: 'flex',
-      alignItems: 'center',
-    }}>
-      <Text>Hi there</Text>
+    <View style={
+      {
+        flex: 1,
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        gap: 10,
 
+      }}>
       <Image
-       resizeMode="contain"
+        resizeMode="contain"
         source={logo}
         style={styles.bgImage} />
-     <View style={{
-      backgroundColor:'purple',
-      width:'100%',
-      height:'100%',
-      padding:20,
-      marginTop:-30
-     }}>
-     <Text style={styles.pageTitle}>Personal Budget Planner</Text>
-     </View>
+      <View style={{
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
+        backgroundColor: COLORS.PRIMARY,
+        width: '100%',
+        height: '50%',
+        padding: 20,
+
+      }}>
+        <Text style={styles.pageTitle}>Personal Budget Planner</Text>
+
+        <Text style={styles.subHeading}>Stay on Track, Event by Event: Your Personal Budget Planner  Budget Planner</Text>
+
+        <View style={styles.buttonWrapper}>
+          <TouchableOpacity style={styles.button}>
+            <Text style={{
+              color: COLORS.PRIMARY,
+              textAlign: 'center',
+              fontSize: 28,
+              fontWeight: '600'
+            }}>Login/Sigup</Text>
+          </TouchableOpacity>
+          <Text style={{
+            color: COLORS.WHITE,
+            marginTop: 8,
+            fontSize: 13,
+            fontWeight: '600'
+          }}>* By Signup/Login you will be agree to our Terms & Conditions</Text>
+
+        </View>
+
+
+      </View>
+
     </View>
   )
 }
@@ -37,7 +66,26 @@ const styles = StyleSheet.create({
     marginTop: 10
   },
   pageTitle: {
-    fontSize: 30,
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 40,
+    marginBottom: 10,
     fontWeight: 'bold'
+  },
+  subHeading: {
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 20,
+    fontWeight: '400'
+  },
+  button: {
+    backgroundColor: COLORS.WHITE,
+    paddingHorizontal: 5,
+    padding: 20,
+    marginTop: 20,
+    borderRadius: 99
+  },
+  buttonWrapper: {
+    paddingVertical: 20
   }
 })

@@ -10,6 +10,8 @@ const Home = () => {
   useEffect(() => {
     checkUserAuth()
   }, [])
+
+  
   /**
    * Check if user is logged in
    */
@@ -22,7 +24,9 @@ const Home = () => {
 
   }
   return (
-    <View>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', 
+      backgroundColor: 'red'
+    }}>
       <Text>Home Screen </Text>
     </View>
   )
