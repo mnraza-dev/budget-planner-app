@@ -4,8 +4,22 @@ import React from 'react'
 import logo from '../../assets/images/react-logo.png';
 import { COLORS } from '../../constants/Colors';
 import { TouchableOpacity } from 'react-native';
+import {client} from "../../utils/KindConfig";
+import services from '../../utils/services';
+import { useRouter } from 'expo-router';
+
 
 const LoginScreen = () => {
+  const router = useRouter();
+
+  const handleSignIn = async () => {
+    const token = await client.login();
+    if (token) {
+      await services.storeData('login', 'true');
+      router.replace('/');
+      console.log("btn clicked")
+    }
+  };
   return (
     <View style={
       {
@@ -33,7 +47,7 @@ const LoginScreen = () => {
         <Text style={styles.subHeading}>Stay on Track, Event by Event: Your Personal Budget Planner  Budget Planner</Text>
 
         <View style={styles.buttonWrapper}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity onPress={handleSignIn} style={styles.button}>
             <Text style={{
               color: COLORS.PRIMARY,
               textAlign: 'center',
